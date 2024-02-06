@@ -1,10 +1,14 @@
-function Produit({ title, price, image }) {
+function Produit({ title, price, image, nbrPanierHandler }) {
+  function btnAdd() {
+    nbrPanierHandler();
+  }
+
   return (
     <div className="produit">
       <img src={"./images/" + image} alt={title} />
       <p>{title}</p>
       <p>{price}</p>
-      <button>Ajouter au panier</button>
+      <button onClick={() => btnAdd()}>Ajouter au panier</button>
     </div>
   );
 }

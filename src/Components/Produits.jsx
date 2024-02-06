@@ -9,6 +9,7 @@ function Produits(props) {
           title={item.title}
           price={item.price}
           image={item.thumbnail}
+          nbrPanierHandler={props.nbrPanierHandler}
         />
       ))}
     </div>

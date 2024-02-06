@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useState } from "react";
 
 import Produits from "./Components/Produits";
 
@@ -31,10 +32,18 @@ const products = [
 ];
 
 function App() {
+  const [nbrPanier, setNbrPanier] = useState(1);
+  function modifierPanier() {
+    setNbrPanier(nbrPanier + 1);
+  }
   return (
     <div className="app">
-      <h1>Liste produits</h1>
-      <Produits list={products} />
+      <h1>
+        Liste produits <span className="panier">{nbrPanier}</span>
+      </h1>
+      {/* <button onClick={() => modifierPanier()}>Modifier Panier</button> */}
+
+      <Produits list={products} nbrPanierHandler={modifierPanier} />
     </div>
   );
 }
